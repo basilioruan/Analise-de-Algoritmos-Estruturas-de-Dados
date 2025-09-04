@@ -111,4 +111,8 @@ int main() {
   if (!erro) {
     cout << "correto" << endl;
   }
+
+  delete pilha;
+
+  return 0;
 }
