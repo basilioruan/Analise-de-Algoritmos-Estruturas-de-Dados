@@ -63,10 +63,3 @@ int main() {
 
   return 0;
 }
-
-/*
-1 Rex Joao 2 12 2015
-2 Toto Maria 25 3 2014
-3 Duquesa Carla 1 3 2016
-7 Jupiter Wilson 19 11 2015
-*/
