@@ -14,7 +14,7 @@ void buscaBinaria(int n, int *vetor, int buscado) {
     if (vetor[meio] == buscado) {
       posicao = meio;
       inicio = fim + 1;
-    } else if (vetor[meio] > meio) {
+    } else if (vetor[meio] > buscado) {
       inicio = meio + 1;
     } else {
       fim = meio - 1;
