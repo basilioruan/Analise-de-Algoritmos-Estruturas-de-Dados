@@ -5,7 +5,7 @@ int main() {
   int n;
   cin >> n;
 
-  char texto[n];
+  char* texto = new char[n];
 
   for (int i = 0; i < n; i++) {
     cin >> texto[i];
@@ -28,5 +28,6 @@ int main() {
     cout << endl;
   }
 
+  delete[] texto;
   return 0;
 }

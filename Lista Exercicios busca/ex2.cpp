@@ -5,7 +5,7 @@ int main() {
   int n;
   cin >> n;
 
-  char texto[n];
+  char* texto = new char[n];
 
   for (int i = 0; i < n; i++) {
     cin >> texto[i];
@@ -16,7 +16,7 @@ int main() {
 
   bool achou = false;
   int count = 0;
-  while (!achou and count < n) {
+  while (!achou && count < n) {
     if (texto[count] == buscado) {
       achou = true;
     } else {
@@ -30,5 +30,6 @@ int main() {
     cout << "-1" << endl;
   }
 
+  delete[] texto;
   return 0;
 }
