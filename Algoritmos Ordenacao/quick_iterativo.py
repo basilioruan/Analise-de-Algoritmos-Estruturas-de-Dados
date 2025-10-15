@@ -21,8 +21,15 @@ def quicksort_iterativo(vetor):
     if inicio < fim:
       pivo_idx = particionar(vetor, inicio, fim)
       
-      pilha.append((inicio, pivo_idx - 1)) 
-      pilha.append((pivo_idx + 1, fim)) 
+      tamanho_esquerda = pivo_idx - inicio
+      tamanho_direita = fim - pivo_idx
+      
+      if tamanho_esquerda > tamanho_direita:
+          pilha.append((inicio, pivo_idx - 1))
+          pilha.append((pivo_idx + 1, fim))
+      else:
+          pilha.append((pivo_idx + 1, fim))
+          pilha.append((inicio, pivo_idx - 1))
   
   return vetor
 
@@ -196,35 +203,6 @@ def gerar_graficos(resultados):
   plt.savefig(nome_arquivo_geral)
   print(f"Gráfico salvo em: {nome_arquivo_geral}")
   plt.close()
-
-def imprimir_analise_complexidade():
-  print("\n" + "=" * 80)
-  print("ANÁLISE DE COMPLEXIDADE - QUICKSORT ITERATIVO")
-  print("=" * 80)
-  print()
-  print("COMPLEXIDADE TEMPORAL:")
-  print("• Melhor Caso:  O(n log n) - Particionamento sempre balanceado (pivô no meio)")
-  print("• Caso Médio:   O(n log n) - Particionamento aleatório na maioria das vezes")
-  print("• Pior Caso:    O(n²) - Array já ordenado (pivô sempre é o maior elemento)")
-  print()
-  print("COMPLEXIDADE ESPACIAL:")
-  print("• O(log n) - Espaço usado pela pilha no melhor caso")
-  print("• O(n) - Espaço usado pela pilha no pior caso")
-  print()
-  print("CENÁRIOS DE TESTE:")
-  print("• Melhor Caso: Vetor aleatório com seed fixa (tende a particionamento balanceado)")
-  print("• Caso Médio: Vetor com elementos completamente aleatórios")
-  print("• Pior Caso: Vetor já ordenado (pivô sempre é o maior elemento)")
-  print()
-  print("VANTAGENS DA VERSÃO ITERATIVA:")
-  print("• Evita stack overflow em casos extremos")
-  print("• Controle mais explícito sobre o uso de memória")
-  print("• Pode ser mais eficiente em alguns cenários")
-  print()
-  print("CARACTERÍSTICAS:")
-  print("• Algoritmo in-place (modificações feitas no próprio array)")
-  print("• Instável (não preserva ordem relativa de elementos iguais)")
-  print("• Divide e conquista usando pilha explícita")
 
 def main():
   resultados = executar_testes_performance()
